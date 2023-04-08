@@ -19,7 +19,7 @@ function VideoDetail() {
     const [videoInfo, setVideoInfo] = useState({})
     const [comments, setComments] = useState([])
     useEffect(()=>{
-        // fetch(YOUTUBE_RELATED_API+searchParam).then((response)=> response.json()).then((data)=> setRelated(data.items))
+        fetch(YOUTUBE_RELATED_API+searchParam).then((response)=> response.json()).then((data)=> setRelated(data.items))
         fetch(YOUTUBE_VIDEO_INFO+searchParam).then((response)=> response.json()).then((data)=> setVideoInfo(data.items[0]))
         fetch(YOUTUBE_VIDEO_COMMENT+searchParam).then((response)=>response.json()).then((data)=> setComments(data.items))
          dispatch(setMenuFalse())
